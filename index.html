@@ -83,12 +83,13 @@
     <script type="text/javascript" src="H5FullscreenPage.js"></script>
     <script src="http://pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500600506"></script>
     <script type="text/javascript">
-        document.addEventListener("WeixinJSBridgeReady", function () {
-            // document.getElementById('fistVideo').play();
-            $('video').each(function () {
+        // document.addEventListener("WeixinJSBridgeReady", function () {
+        //     // document.getElementById('fistVideo').play();
+           
+        // }, false);
+        $('video').each(function () {
                 this.play()
             })
-        }, false);
 
         H5FullscreenPage.init({
             'type': 2,
@@ -96,9 +97,9 @@
                 var nativeVideo = $(dom).find('video')[0];
                 // alert($(dom).length)
                 $(dom).find('video')[0].play();
-                document.addEventListener("WeixinJSBridgeReady", function () {
+                // document.addEventListener("WeixinJSBridgeReady", function () {
                     
-                }, false);
+                // }, false);
                 
             },
             'pageHide': function (dom) {
