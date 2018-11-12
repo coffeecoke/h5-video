@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class=" js-no-overflow-scrolling">
+
+<head>
+    <meta charset="UTF-8">
+    <title>111</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="x5-orientation" content="portrait">
+    <link rel="stylesheet" type="text/css" href="H5FullscreenPage.css">
+    <link rel="stylesheet" type="text/css" href="page-animation.css">
+    <style type="text/css">
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: arial;
+            text-align: center;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .item {
+            background-color: #000;
+        }
+
+        video {
+            object-fit: fill;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .item.active {
+            position: fixed;
+            left: 0;
+            z-index: 999;
+        }
+    </style>
+
+</head>
+
+<body class="H5FullscreenPage">
+    <div class="H5FullscreenPage-wrap">
+        <div class="item item1">
+            <h2>page1</h2>
+            <video id="fistVideo" loop="" class="video" preload="auto" playsinline="" x5-video-player-type="h5"
+                x5-video-player-fullscreen="false" webkit-playsinline="" poster="" src="videos/01.mp4" type="video/mp4"></video>
+        </div>
+        <div class="item item2">
+            <h2>page2</h2>
+            <video loop="" class="video" preload="auto" playsinline="" x5-video-player-type="h5"
+                x5-video-player-fullscreen="false" webkit-playsinline="" poster="" src="videos/02.mp4" type="video/mp4"></video>
+        </div>
+        <div class="item item3">
+            <h2>page3</h2>
+            <video loop="" class="video" preload="auto" playsinline="" x5-video-player-type="h5"
+                x5-video-player-fullscreen="false" webkit-playsinline="" poster="" src="videos/03.mp4" type="video/mp4"></video>
+        </div>
+        <div class="item item4">
+            <h2>page4</h2>
+            <video loop="" class="video" preload="auto" playsinline="" x5-video-player-type="h5"
+                x5-video-player-fullscreen="false" webkit-playsinline="" poster="" src="videos/04.mp4" type="video/mp4"></video>
+        </div>
+        <div class="item item5">
+            <h2>page5</h2>
+            <video loop="" class="video" preload="auto" playsinline="" x5-video-player-type="h5"
+                x5-video-player-fullscreen="false" webkit-playsinline="" poster="" src="videos/05.mp4" type="video/mp4"></video>
+        </div>
+        
+    </div>
+    <script src="http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="H5FullscreenPage.js"></script>
+    <script src="http://pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500600506"></script>
+    <script type="text/javascript">
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            // document.getElementById('fistVideo').play();
+            $('video').each(function () {
+                this.play()
+            })
+        }, false);
+
+        H5FullscreenPage.init({
+            'type': 2,
+            'pageShow': function (dom) {
+                var nativeVideo = $(dom).find('video')[0];
+                // alert($(dom).length)
+                $(dom).find('video')[0].play();
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    
+                }, false);
+                
+            },
+            'pageHide': function (dom) {
+                var nativeVideo = $(dom).find('video')[0];
+                nativeVideo.currentTime = 0;
+                $(dom).find('video')[0].pause();
+            }
+        });
+    </script>
+</body>
+
+</html>
